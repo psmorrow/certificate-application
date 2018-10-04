@@ -138,14 +138,14 @@ namespace CertificateApplication
 
         private string formatBytes(string value)
         {
-            string formattedValue = "";
+            StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < value.Length; ++i)
             {
-                formattedValue += (i > 0 && i % 2 == 0 ? " " : "") + value[i];
+                sb.Append((i > 0 && i % 2 == 0 ? " " : "") + value[i]);
             }
 
-            return formattedValue;
+            return sb.ToString();
         }
     }
 }
