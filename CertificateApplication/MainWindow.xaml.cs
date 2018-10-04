@@ -61,7 +61,7 @@ namespace CertificateApplication
             GetCertificate(hostTextBox.Text);
         }
 
-        private void GetCertificate(string HostName)
+        private void GetCertificate(string hostName)
         {
             hostTextBox.IsEnabled = false;
             getButton.IsEnabled = false;
@@ -70,7 +70,7 @@ namespace CertificateApplication
             string text = "";
             try
             {
-                string url = "https://" + HostName + "/";
+                string url = string.Format("https://{0}/", hostName);
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
